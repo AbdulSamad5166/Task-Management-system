@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow - Task &amp; Project Management System</title>
+    <meta name="description" content="Organize projects, prioritize tasks, and track progress with TaskFlow, your offline-first workspace." />
+    <meta property="og:title" content="TaskFlow - Task &amp; Project Management System" />
+    <meta property="og:description" content="Organize projects, prioritize tasks, and track progress with TaskFlow, your offline-first workspace." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#4f46e5" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('taskflow_theme_mode');
+          var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && systemDark) || (saved === 'system' && systemDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+          var color = localStorage.getItem('taskflow_accent_color') || 'indigo';
+          document.documentElement.setAttribute('data-accent', color);
+          var density = localStorage.getItem('taskflow_density') || 'comfortable';
+          document.documentElement.setAttribute('data-density', density);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased selection:bg-teal-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
